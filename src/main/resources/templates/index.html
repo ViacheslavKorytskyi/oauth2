@@ -1,22 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
-<meta charset="UTF-8">
-<title>Index page</title>
+	<meta charset="UTF-8">
+	<title>Index</title>
 </head>
+
 <body>
 	<h2>This is index page</h2>
-	<div>
+	<div sec:authorize="isAnonymous()">
 		You should log in
 		<div>
 			<a href="/login/oauth2">Login with OAuth2</a>
 		</div>
 	</div>
-	<div>
-		<a href="#">Logout</a>
+	<div sec:authorize="isAuthenticated()">
+		<a onclick="logout()" href="#">Logout</a>
 	</div>
 	<div>
 		<a href="/secured">Visit secured page</a>
 	</div>
+	<script type="text/javascript">
+		async function logout() {
+			await fetch("/logout", {method: "post"})
+			window.location.reload()
+		}
+	</script>
 </body>
+
 </html>

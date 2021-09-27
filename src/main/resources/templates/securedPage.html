@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Secured page</title>
@@ -7,7 +7,11 @@
 <body>
 	<div>
 		<h2>This is secured page</h2>
-		<a href="/index">Index page</a>
+		<div>
+			You logged in as <span th:text="${login}"></span> with <span
+				th:text="${provider}"></span>
+		</div>
+		<a href="/index">Back to index</a>
 	</div>
 </body>
 </html>
