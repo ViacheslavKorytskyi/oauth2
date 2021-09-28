@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
 import java.util.Map;
-
 import org.springframework.stereotype.Component;
 
 @Component
@@ -14,6 +13,9 @@ public class UserInfoFactory {
 		}
 		if (provider.equalsIgnoreCase("google")) {
 			userInfo = new GoogleUserInfo(attributes);
+		}
+		if (provider.equalsIgnoreCase("facebook")) {
+			userInfo = new FacebookUserInfo(attributes);
 		}
 		return userInfo;
 	}
