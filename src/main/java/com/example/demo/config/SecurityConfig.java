@@ -10,10 +10,14 @@ import com.example.demo.service.CustomOidcUserService;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	@Autowired
 	private CustomOauth2UserService userService;
-	@Autowired
 	private CustomOidcUserService oidcUserService;
+
+	public SecurityConfig(CustomOauth2UserService userService, CustomOidcUserService oidcUserService) {
+		super();
+		this.userService = userService;
+		this.oidcUserService = oidcUserService;
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {

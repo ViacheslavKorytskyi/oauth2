@@ -11,7 +11,5 @@ public class GitHubUserInfo extends UserInfo {
 	@Override
 	public String getLogin() {
 		return (String) attributes.get("login");
-	}
-	
-	
+	}	
 }

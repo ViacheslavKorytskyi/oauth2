@@ -14,9 +14,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
 	private String login;
-
 	private String provider;
 
 	public User() {
@@ -26,6 +24,12 @@ public class User {
 	public User(int id, String login, String provider) {
 		super();
 		this.id = id;
+		this.login = login;
+		this.provider = provider;
+	}
+
+	public User(String login, String provider) {
+		super();
 		this.login = login;
 		this.provider = provider;
 	}
